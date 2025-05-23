@@ -329,7 +329,16 @@ export class MemStorage implements IStorage {
 
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
     const id = this.currentId.products++;
-    const product: Product = { ...insertProduct, id };
+    const product: Product = { 
+      ...insertProduct, 
+      id,
+      categoryId: insertProduct.categoryId || null,
+      isCustomizable: insertProduct.isCustomizable || null,
+      rating: insertProduct.rating || null,
+      reviewCount: insertProduct.reviewCount || null,
+      inStock: insertProduct.inStock || null,
+      tags: insertProduct.tags || null
+    };
     this.products.set(id, product);
     return product;
   }
@@ -341,7 +350,13 @@ export class MemStorage implements IStorage {
 
   async createCustomizationOption(insertOption: InsertCustomizationOption): Promise<CustomizationOption> {
     const id = this.currentId.customizationOptions++;
-    const option: CustomizationOption = { ...insertOption, id };
+    const option: CustomizationOption = { 
+      ...insertOption, 
+      id,
+      values: insertOption.values || null,
+      productId: insertOption.productId || null,
+      priceModifier: insertOption.priceModifier || null
+    };
     this.customizationOptions.set(id, option);
     return option;
   }
@@ -380,9 +395,12 @@ export class MemStorage implements IStorage {
   async addToCart(insertItem: InsertCartItem): Promise<CartItem> {
     const id = this.currentId.cartItems++;
     const item: CartItem = { 
-      ...insertItem, 
       id, 
-      addedAt: new Date() 
+      sessionId: insertItem.sessionId,
+      productId: insertItem.productId || null,
+      quantity: insertItem.quantity || 1,
+      customization: insertItem.customization || null,
+      addedAt: new Date()
     };
     this.cartItems.set(id, item);
     return item;

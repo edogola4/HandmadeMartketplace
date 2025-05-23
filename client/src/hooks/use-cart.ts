@@ -74,13 +74,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = cartItems.reduce((sum, item) => sum + (parseFloat(item.product.price) * item.quantity), 0);
 
-  const value: CartContextType = {
+  const value = {
     cartItems,
     cartCount,
     cartTotal,
     isLoading,
     addToCart: addToCartMutation.mutateAsync,
-    updateQuantity: (itemId, quantity) => updateQuantityMutation.mutateAsync({ itemId, quantity }),
+    updateQuantity: (itemId: number, quantity: number) => updateQuantityMutation.mutateAsync({ itemId, quantity }),
     removeFromCart: removeFromCartMutation.mutateAsync,
     clearCart: clearCartMutation.mutateAsync,
   };
