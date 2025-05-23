@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;600&display=swap');
+
+:root {
+  --background: 45 25% 96%; /* #F5F5DC - warm beige */
+  --foreground: 30 20% 15%; /* #2D2419 - dark brown */
+  --muted: 45 20% 92%; /* #EFEDE6 - light warm gray */
+  --muted-foreground: 30 15% 45%; /* #6B5B4F - medium brown */
+  --popover: 0 0% 100%; /* #FFFFFF - white */
+  --popover-foreground: 30 20% 15%; /* #2D2419 - dark brown */
+  --card: 0 0% 100%; /* #FFFFFF - white */
+  --card-foreground: 30 20% 15%; /* #2D2419 - dark brown */
+  --border: 30 15% 85%; /* #D4C7BA - light brown */
+  --input: 30 15% 85%; /* #D4C7BA - light brown */
+  --primary: 25 65% 35%; /* #8B4513 - saddle brown */
+  --primary-foreground: 0 0% 98%; /* #FAFAFA - off-white */
+  --secondary: 28 70% 45%; /* #D2691E - chocolate */
+  --secondary-foreground: 0 0% 98%; /* #FAFAFA - off-white */
+  --accent: 28 60% 55%; /* #CD853F - peru */
+  --accent-foreground: 0 0% 98%; /* #FAFAFA - off-white */
+  --destructive: 0 84% 60%; /* #DC143C - crimson */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA - off-white */
+  --ring: 25 65% 35%; /* #8B4513 - saddle brown */
+  --radius: 0.5rem;
+  --success: 120 61% 34%; /* #228B22 - forest green */
+  --warm: 45 25% 96%; /* #F5F5DC - warm beige */
+}
+
+.dark {
+  --background: 30 20% 8%; /* #1A140F - very dark brown */
+  --foreground: 45 25% 96%; /* #F5F5DC - warm beige */
+  --muted: 30 20% 15%; /* #2D2419 - dark brown */
+  --muted-foreground: 45 20% 70%; /* #B8AE9E - light brown */
+  --popover: 30 20% 8%; /* #1A140F - very dark brown */
+  --popover-foreground: 45 25% 96%; /* #F5F5DC - warm beige */
+  --card: 30 20% 8%; /* #1A140F - very dark brown */
+  --card-foreground: 45 25% 96%; /* #F5F5DC - warm beige */
+  --border: 30 20% 20%; /* #3A2E23 - medium dark brown */
+  --input: 30 20% 20%; /* #3A2E23 - medium dark brown */
+  --primary: 25 65% 35%; /* #8B4513 - saddle brown */
+  --primary-foreground: 0 0% 98%; /* #FAFAFA - off-white */
+  --secondary: 30 20% 20%; /* #3A2E23 - medium dark brown */
+  --secondary-foreground: 45 25% 96%; /* #F5F5DC - warm beige */
+  --accent: 30 20% 20%; /* #3A2E23 - medium dark brown */
+  --accent-foreground: 45 25% 96%; /* #F5F5DC - warm beige */
+  --destructive: 0 62% 30%; /* #7A0E1B - dark red */
+  --destructive-foreground: 0 0% 98%; /* #FAFAFA - off-white */
+  --ring: 25 65% 35%; /* #8B4513 - saddle brown */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-dancing {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary/90 text-secondary-foreground;
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground;
+  }
+
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+
+  .bg-warm {
+    background-color: hsl(var(--warm));
+  }
+
+  .text-warm {
+    color: hsl(var(--warm));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
